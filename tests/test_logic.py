@@ -286,7 +286,7 @@ if sys.platform == "darwin":
           and not macos.is_game(W(3, 12, "Google Chrome", "MapleStory Classic guide", 0, (0, 0, 800, 600), True), 99)
           and not macos.is_game(W(4, 99, "Python", "MapleStory", 0, (0, 0, 800, 600), True), 99)
           and not macos.is_game(W(5, 13, "wine64-preloader", "MapleStory", 25, (0, 0, 800, 600), True), 99))
-    check("macOS windows can be listed", isinstance(macos.window_list(), list))
+    check("macOS windows can be listed (at least the menu bar and Dock are always there)", len(macos.window_list()) > 0)
 check("release notes are shown as plain text, keeping names like exp_log.txt",
       m._plain_text("**New**\n- **Time** in `exp_log.txt`, see [README](https://x)") == "New\n• Time in exp_log.txt, see README")
 # B06-1: hostile release notes / version names (a broken or tampered GitHub answer) can't freeze or stretch the overlay
